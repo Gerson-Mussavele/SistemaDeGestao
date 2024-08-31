@@ -4,7 +4,9 @@ const {
     getClientes,
     getCliente,
     updateCliente,
-    deleteCliente
+    deleteCliente,
+    markAsPaid,
+    sendSMS
 } = require('../controllers/clienteController');
 
 const router = express.Router();
@@ -23,5 +25,11 @@ router.patch('/:id', updateCliente);
 
 // delete a cliente
 router.delete('/:id', deleteCliente);
+
+// mark debt as paid
+router.patch('/:id/paid', markAsPaid);
+
+// send SMS to cliente
+router.post('/:id/sendsms', sendSMS);
 
 module.exports = router;

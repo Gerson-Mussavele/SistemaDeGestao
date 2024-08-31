@@ -5,7 +5,8 @@ const{
     getProducts,
     getProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    getCriticalStockProducts
 } = require('../controllers/productController');
 
 const router = express.Router();
@@ -24,5 +25,8 @@ router.put('/:id', updateProduct);
 
 // delete a product
 router.delete('/:id', deleteProduct);
+
+// get products with stock quantity <= 10
+router.get('/critical-stock', getCriticalStockProducts);
 
 module.exports = router;

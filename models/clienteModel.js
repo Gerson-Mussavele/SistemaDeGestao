@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const schema = mongoose.Schema;
 
 const clienteSchema = new schema({
@@ -15,8 +14,12 @@ const clienteSchema = new schema({
         type: String,
         required: true
     },
+    divida: {
+        type: Number,
+        default: 0  // Initialize divida to 0
+    }
 }, {
-    timestamps: true  // Configuração correta para timestamps
+    timestamps: true  // Correct configuration for timestamps
 });
 
 module.exports = mongoose.model('Cliente', clienteSchema);
