@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 const clienteRoutes = require('./routes/clienteRoutes');
 const saleRoutes = require('./routes/saleRoutes');
@@ -28,6 +29,7 @@ app.use((req,res, next) =>{
 })
 
 // routes
+app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/clientes', clienteRoutes);
 app.use('/api/sales', saleRoutes);
